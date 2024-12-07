@@ -11,6 +11,7 @@ fun main(args: Array<String>) {
    println("Хотите ли вы закончить работу или составить поезд?")
    print("Хотите ли вы составить поезд YES/EXIT:")
    userDecision = readln()
+   userDecision = userDecision.toUpperCase()
    if(userDecision == "YES" || userDecision == "EXIT")
    {
     isCorrect = true
@@ -20,15 +21,20 @@ fun main(args: Array<String>) {
     println("Такого выбора не существует! Попробуйте ещё раз.")
    }
   }
+
   if(userDecision == "YES")
   {
    var train = Train()
    train.startCity = GenerateCity()
    train.endCity = GenerateNonRepeatingCities(train.startCity)
-   println("Направление поезда -> ${train.printSity()}")
 
    var sellTickets = Random.nextInt(5, 201)
+   println("Количество проданных билетов: $sellTickets")
+   train.loadingPassengers(sellTickets)
 
+   println("Поезд ${train.direction()}, состоящий из ${train.wagons.count()} вагонов отправлен.")
+   train.printTrain()
+   println()
   }
   else if(userDecision == "EXIT")
   {

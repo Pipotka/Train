@@ -23,6 +23,6 @@ class Wagon {
         get() = field
 
     fun Print(){
-        print("[Вместимость=$Capacity;Количество людей=$NumberOfPeople]")
+        print(".[Вместимость=$Capacity;Количество людей=$NumberOfPeople].")
     }
 }
